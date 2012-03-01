@@ -28,7 +28,7 @@ before '_call' => sub {
 	if ($self->has_user) {
 		my $user = $self->user;
 		my $passwd = $self->has_passwd ? $self->passwd : '';
-		$self->set_header('Basic ' . MIME::Base64::encode("$user:$passwd", ''));
+		$self->set_header('Authorization', 'Basic ' . MIME::Base64::encode("$user:$passwd", ''));
 	}
 	return;
 };
@@ -51,7 +51,8 @@ Role::REST::Client::Auth::Basic - Basic Authentication for REST Client Role
 		package RESTExample;
 
 		use Moose;
-		with 'Role::REST::Client', 'Role::REST::Client::Auth::Basic';
+		with 'Role::REST::Client';
+		with 'Role::REST::Client::Auth::Basic';
 
 		sub bar {
 			my ($self) = @_;
