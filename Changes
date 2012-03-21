@@ -1,6 +1,7 @@
 Revision history for Role-Model-REST-Auth-Basic
 
 {{$NEXT}}
+ - _headers changes to httpheaders in Role::REST::Client
 
 0.01    2012-03-01 21:20:18 Europe/Copenhagen
  - First version

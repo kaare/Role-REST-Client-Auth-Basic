@@ -4,7 +4,7 @@ use 5.010;
 use Moose::Role;
 use MIME::Base64;
 
-requires '_call', '_headers';
+requires '_call', 'httpheaders';
 
 has 'user' => (
 	isa => 'Str',
