@@ -1,6 +1,8 @@
 Revision history for Role-Model-REST-Auth-Basic
 
 {{$NEXT}}
+
+0.04    2012-03-30 11:10:27 Europe/Copenhagen
  - Don't use 5.010. We don't need it.
 
 0.03    2012-03-22 07:09:32 Europe/Copenhagen
