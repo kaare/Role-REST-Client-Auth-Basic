@@ -1,6 +1,5 @@
 package Role::REST::Client::Auth::Basic;
 
-use 5.010;
 use Moose::Role;
 use MIME::Base64;
 

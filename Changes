@@ -1,6 +1,7 @@
 Revision history for Role-Model-REST-Auth-Basic
 
 {{$NEXT}}
+ - Don't use 5.010. We don't need it.
 
 0.03    2012-03-22 07:09:32 Europe/Copenhagen
  - httpheaders require Role::REST::Client 0.03
