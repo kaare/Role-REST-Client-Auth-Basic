@@ -1,32 +1,33 @@
 package Role::REST::Client::Auth::Basic;
 
-use Moose::Role;
+use Moo::Role;
 use MIME::Base64;
+use Types::Standard qw(Str);
 
 requires '_call', 'httpheaders';
 
+
 has 'user' => (
-	isa => 'Str',
+	isa => Str,
 	is  => 'rw',
-    predicate => 'has_user',
 	trigger => sub {
 		my ($self, $user) = @_;
 		Carp::croak("Basic authentication user name can't contain ':'") if $user =~ /:/;
 	},
 );
 has 'passwd' => (
-	isa => 'Str',
+	isa => Str,
 	is  => 'rw',
-    predicate => 'has_passwd',
 );
 
 before '_call' => sub {
 	my ($self, $method, $endpoint, $data, $args) = @_;
 	return if $args->{authentication} and $args->{authentication} ne 'basic';
 
-	if ($self->has_user) {
-		my $user = $self->user;
-		my $passwd = $self->has_passwd ? $self->passwd : '';
+	my $user = $self->user;
+	if (defined $user) {
+		my $passwd = $self->passwd();
+		$passwd = '' if !defined $passwd;
 		$self->set_header('Authorization', 'Basic ' . MIME::Base64::encode("$user:$passwd", ''));
 	}
 	return;
@@ -95,6 +96,10 @@ Add an authentication parameter to the arguments if you for some reaon don't wan
 =head1 AUTHOR
 
 Kaare Rasmussen, <kaare at cpan dot com>
+
+=head1 CONTRIBUTORS
+
+Aran Deltac, (cpan:BLUEFEET) <bluefeet@gmail.com>
 
 =head1 BUGS 
 

@@ -3,7 +3,7 @@ use Test::More tests => 12;
 {
 	package RESTExample;
 
-	use Moose;
+	use Moo;
 	with 'Role::REST::Client';
 	with 'Role::REST::Client::Auth::Basic';
 
