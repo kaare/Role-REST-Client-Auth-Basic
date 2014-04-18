@@ -108,7 +108,7 @@ web interface at http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Role-REST-Client
 
 =head1 COPYRIGHT & LICENSE 
 
-Copyright 2012 Kaare Rasmussen, all rights reserved.
+Copyright 2014 Kaare Rasmussen, all rights reserved.
 
 This library is free software; you can redistribute it and/or modify it under the same terms as 
 Perl itself, either Perl version 5.8.8 or, at your option, any later version of Perl 5 you may 
